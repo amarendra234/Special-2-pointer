@@ -1,0 +1,23 @@
+public class Solution {
+    /**
+     * @param nums: An array of integer
+     * @param target: An integer
+     * @return: The sum of two numbers smaller than target
+     */
+    public int twoSumLessThanTarget(int[] nums, int target) {
+        // write your code here
+        int maxi_sum=Integer.MIN_VALUE;
+        Arrays.sort(nums);
+        int i=0,j=nums.length-1;
+        while(i<j){
+             int sum=nums[i]+nums[j];
+             if(sum<target){
+                 maxi_sum=Math.max(maxi_sum,sum);
+                 i++;
+             }else{
+                j--;
+             }
+        }
+        return maxi_sum==Integer.MIN_VALUE?-1:maxi_sum;
+    }
+}
