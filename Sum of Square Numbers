@@ -1,0 +1,18 @@
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        long i=0;
+        double square_root=Math.sqrt(c);
+        long j=(long)square_root;
+        while(i<=j){
+           long square=(i*i)+(j*j);
+           if(square==c){
+              return true;
+           }else if(square>c){
+             j--;
+           }else{
+            i++;
+           }
+        }
+        return false;
+    }
+}
