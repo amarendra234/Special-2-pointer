@@ -1,0 +1,50 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int leftmax=0,rightmax=0;
+        int i=0,j=height.size()-1; 
+        int total=0;
+    //     int len=height.size();
+    //    // int left[len];
+    //     int right[len];
+    //     // for(int i=0;i<len;i++){
+    //     //     leftmax=max(leftmax,height[i]);
+    //     //     left[i]=leftmax;
+    //     // }
+    //     for(int i=len-1;i>=0;i--){
+    //         rightmax=max(rightmax,height[i]);
+    //         right[i]=rightmax;
+    //     }
+    //     int total=0;
+    //     for(int i=0;i<len;i++){
+    //         leftmax=max(leftmax,height[i]);
+    //         int val=min(leftmax,right[i]);
+    //         if(val>height[i]){
+    //             total+=(val-height[i]);
+    //         }
+    //     }
+    while(i<j){
+        if(height[i]<=height[j]){
+            if(leftmax>height[i]){
+                total+=(leftmax-height[i]);
+               
+            }else{
+                leftmax=height[i];
+                
+            }
+            i++;
+        }else{
+            if(rightmax>height[j]){
+                total+=(rightmax-height[j]);
+            }else{
+                rightmax=height[j];
+    
+            }
+            j--;
+        
+        }
+    }
+        return total;
+        
+    }
+};
